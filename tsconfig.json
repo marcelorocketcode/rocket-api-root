@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+        "@utils/*": ["utils/*"]
+      },
+    "target": "ES2020",                     // Define la versión de ECMAScript a la que se compilará el código
+    "module": "commonjs",                   // Define el sistema de módulos a usar
+    "lib": ["ES2020", "DOM"],               // Define las bibliotecas disponibles durante la compilación
+    "allowJs": false,                       // No permite archivos JavaScript
+    "checkJs": false,                       // No verifica archivos JavaScript
+    "jsx": "preserve",                      // Mantiene el JSX tal como está, útil para proyectos React
+    "declaration": true,                    // Genera archivos de declaración (.d.ts)
+    "declarationMap": true,                 // Genera mapas de archivos de declaración
+    "sourceMap": true,                      // Genera archivos de mapa de origen (.map)
+    "outDir": "./dist",                     // Define el directorio de salida
+    "rootDir": "./src",                     // Define el directorio raíz del código fuente
+    "removeComments": false,                // No elimina comentarios en el código compilado
+    "noEmit": false,                        // No emite archivos (puede ser útil para verificar errores sin generar archivos)
+    "incremental": true,                    // Habilita compilaciones incrementales para mejorar la velocidad
+    "strict": true,                         // Habilita todas las comprobaciones estrictas
+    "noImplicitAny": true,                  // No permite variables con tipo `any` implícito
+    "strictNullChecks": true,               // Habilita comprobaciones estrictas de null
+    "strictFunctionTypes": true,            // Habilita comprobaciones estrictas de tipos de funciones
+    "strictBindCallApply": true,            // Habilita comprobaciones estrictas para métodos bind, call y apply
+    "strictPropertyInitialization": true,   // Verifica que todas las propiedades estén inicializadas en el constructor
+    "noImplicitThis": true,                 // No permite el uso implícito de `this`
+    "alwaysStrict": true,                   // Asegura que el código se analice en modo estricto
+    "noImplicitReturns": true,              // Reporta funciones que no tienen un valor de retorno explícito en todas las ramas
+    "noFallthroughCasesInSwitch": true,     // Reporta casos de switch que caen a través de otros casos
+    "noUncheckedIndexedAccess": true,       // Habilita comprobaciones estrictas para accesos indexados
+    "exactOptionalPropertyTypes": true,     // Habilita comprobaciones exactas para tipos de propiedades opcionales
+    "forceConsistentCasingInFileNames": true, // Enforce consistent casing in file names
+    "skipLibCheck": true,                   // Omite la comprobación de tipos en archivos de declaración
+    "esModuleInterop": true,                // Habilita la interoperabilidad de módulos ES
+    "preserveSymlinks": true,               // Preserve symbolic links when resolving modules
+    "allowSyntheticDefaultImports": true,   // Allow default imports from modules with no default export
+    "moduleResolution": "node",             // Use Node.js-style module resolution
+    "resolveJsonModule": true,              // Include modules imported with `.json` extension
+    "isolatedModules": true                 // Ensure that each file can be safely transpiled without relying on other imports
+  },
+  "exclude": ["node_modules", "dist"]       // Excluir node_modules y el directorio de salida
+}
