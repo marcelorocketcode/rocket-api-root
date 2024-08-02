@@ -9,7 +9,7 @@ const port = process.env.PORT || 8080;
 app.use(express.json());
 
 app.post('/sign-up', (req: Request, res: Response) => {
-  logger.info("Initializing request using Sign Up customer")
+  logger.info("Initializing request using SignUp customer")
 
   const { username, email, password } = req.body;
 
