@@ -17,6 +17,9 @@ app.post('/sign-up', (req: Request, res: Response) => {
   logger.info("email: %s", email);
   logger.info("password: %s", password);
 
+  logger.warn("Testing warning message logs just for confirm");
+  logger.error("Error validating user details");
+
   return res.status(200).json({
     message: 'Testing ROOT endpoint successful',
     result: null,
