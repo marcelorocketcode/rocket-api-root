@@ -20,5 +20,10 @@ steps:
     - '--service-account'
     - $_SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com
     - '--env-vars-file=$_ENV_PATH'
+
 images:
     - 'gcr.io/$PROJECT_ID/rocket-api-root:$COMMIT_SHA'
+
+# initial comment for dev branch REMOVE THIS LINE!
+options:
+  logging: CLOUD_LOGGING_ONLY
