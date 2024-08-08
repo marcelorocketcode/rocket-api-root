@@ -7,6 +7,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/rocket-api-root:$COMMIT_SHA']
     
+  # Deploy the container to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -19,5 +20,5 @@ steps:
     - '--service-account'
     - $_SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com
     - '--env-vars-file=$_ENV_PATH'
-    images:
+images:
     - 'gcr.io/$PROJECT_ID/rocket-api-root:$COMMIT_SHA'
