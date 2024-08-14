@@ -1,0 +1,111 @@
+swagger: '2.0'
+
+info:
+  version: 1.0.0
+  title: marketplace-api
+  description: TheRocketCode Marketplace
+
+
+produces:
+- application/json
+
+schemes:
+- https
+
+
+paths:
+  /auth/sign-in:
+    post:
+      tags:
+      - Auth
+      description: Sign In user using credentials
+      operationId: sign-in
+      x-google-backend:
+        address: https://rocket-api-root-eqilswxjea-uc.a.run.app/auth/sign-in
+      parameters:
+        - in: body
+          name: SignInPayload
+          description: The user to create.
+          schema:
+            $ref: '#/definitions/SignInPayload'
+
+      responses:
+        200:
+          description: All the devices
+          schema:
+            type: array
+            items:
+              type: string
+              format: uri
+              example: http://10.0.0.225:8080
+  /auth/validate-session:
+    post:
+      tags:
+      - Auth
+      description: Sign In user using credentials
+      operationId: validate-session
+      security:
+      - Bearer: []
+      x-google-backend:
+        address: https://rocket-api-root-eqilswxjea-uc.a.run.app/auth/validate-session
+      parameters:
+        - in: body
+          name: SignInPayload
+          description: The user to create.
+          schema:
+            $ref: '#/definitions/SignInPayload'
+
+      responses:
+        200:
+          description: All the devices
+          schema:
+            type: array
+            items:
+              type: string
+              format: uri
+              example: http://10.0.0.225:8080
+
+
+  /agents-ai/get-all:
+    get:
+      tags:
+      - Agents AI
+      description: Get all agents in the service
+      operationId: agents-get-all
+      x-google-backend:
+        address: https://rocket-api-agents-ai-eqilswxjea-uc.a.run.app/agents
+      security:
+      - Bearer: []
+      responses:
+        200:
+          description: All Agents
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Agent'
+
+definitions:
+  Agent:
+    type: object
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+  
+  SignInPayload:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
+host: marketplace.rocketcode.com
+basePath: /api/

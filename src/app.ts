@@ -12,7 +12,7 @@ const port = process.env.PORT || 8080;
 
 app.use(express.json());
 
-app.post('/sign-up', (req: Request, res: Response) => {
+app.post('/auth/sign-up', (req: Request, res: Response) => {
   try {
     logger.info("Initializing request using SignUp customer")
 
@@ -54,7 +54,7 @@ app.post('/sign-up', (req: Request, res: Response) => {
   }
 }); 
 
-app.post('/sign-in', (req: Request, res: Response) => {
+app.post('/auth//sign-in', (req: Request, res: Response) => {
   try {
     logger.info("Initializing request using SinIn customer")
 
@@ -82,6 +82,36 @@ app.post('/sign-in', (req: Request, res: Response) => {
     return res.status(200).json({
       message: 'Sign In successful',
       result: response,
+      status_code: 200,
+      status_message: StatusMsg.SUCCESS
+    });
+  } catch (error: any) {
+    logger.error(error);
+    return res.status(400).json({
+      message: error.message || 'Server error, try again later',
+      result: null,
+      statusCode: 400,
+      statusMessage: StatusMsg.ERROR
+    });
+  }
+});
+
+app.post('/auth/validate-session', (req: Request, res: Response) => {
+  try {
+    logger.info("Initializing request to validate session")
+
+    const { Authorization } = req.headers;
+    
+    if (!Authorization) return res.status(401).json({
+      message: 'Unauthorized',
+      result: null,
+      status_code: 401,
+      status_message: StatusMsg.ERROR
+    }); 
+
+    return res.status(200).json({
+      message: 'Session valid successful',
+      result: null,
       status_code: 200,
       status_message: StatusMsg.SUCCESS
     });
