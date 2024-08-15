@@ -19,7 +19,7 @@ steps:
     - 'gcr.io/$PROJECT_ID/rocket-api-root:$COMMIT_SHA'
     - '--region=us-central1'
     - '--service-account'
-    - $_SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com
+    - 'rocket-api-root-dev@marketplace-431222.iam.gserviceaccount.com'
     - '--env-vars-file=$_ENV_PATH'
 
 images:
