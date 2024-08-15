@@ -54,7 +54,7 @@ app.post('/auth/sign-up', (req: Request, res: Response) => {
   }
 }); 
 
-app.post('/auth//sign-in', (req: Request, res: Response) => {
+app.post('/auth/sign-in', (req: Request, res: Response) => {
   try {
     logger.info("Initializing request using SinIn customer")
 

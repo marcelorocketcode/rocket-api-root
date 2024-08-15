@@ -1,7 +1,5 @@
 import jwt from 'jsonwebtoken';
-
 import { User } from "db/user.entity";
-import logger from './logger';
 
 
 export const createTokenByUser = (user: User) => {
